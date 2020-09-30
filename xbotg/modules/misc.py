@@ -210,11 +210,9 @@ def markdown_help(_bot: Bot, update: Update):
 
 @run_async
 @sudo_plus
-def stats(_bot: Bot, update: Update):
-    stats = "Current stats:\n" + "\n".join(mod.__stats__() for mod in STATS)
+def stats(bot: Bot, update: Update):
+    stats = "Current stats:\n" + "\n".join([mod.__stats__() for mod in STATS])
     result = re.sub(r'(\d+)', r'<code>\1</code>', stats)
-    r = requests.get("https://api.waa.ai/v2/links/XBOTGBOT").json()
-    result += f"\nClicks on Repository: {r['data']['clicks']}"
     update.effective_message.reply_text(result, parse_mode=ParseMode.HTML)
 
 
