@@ -31,7 +31,7 @@ from telegram.error import BadRequest
 from telegram.ext import CommandHandler, Filters, run_async
 
 from xbotg import MESSAGE_DUMP, OWNER_ID, dispatcher
-from ubotindo.modules.helper_funcs.alternate import typing_action
+from xbotg.modules.helper_funcs.alternate import typing_action
 from xbotg.modules.helper_funcs.filters import CustomFilters
 
 
