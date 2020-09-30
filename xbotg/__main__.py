@@ -497,7 +497,7 @@ def main():
             updater.bot.set_webhook(url=URL + TOKEN)
 
     else:
-        LOGGER.info("Using long polling.")
+        LOGGER.info("Telah Aktif 🔥")
         updater.start_polling(timeout=15, read_latency=4)
     if len(argv) not in (1, 3, 4):
         telethn.disconnect()
