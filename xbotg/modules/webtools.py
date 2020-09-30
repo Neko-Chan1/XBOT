@@ -31,10 +31,12 @@ from telegram.error import BadRequest
 from telegram.ext import CommandHandler, Filters, run_async
 
 from xbotg import MESSAGE_DUMP, OWNER_ID, dispatcher
+from ubotindo.modules.helper_funcs.alternate import typing_action
 from xbotg.modules.helper_funcs.filters import CustomFilters
 
 
 @run_async
+@typing_action
 def get_bot_ip(update, context):
     """Sends the bot's IP address, so as to be able to ssh in if necessary.
     OWNER ONLY.
@@ -44,6 +46,7 @@ def get_bot_ip(update, context):
 
 
 @run_async
+@typing_action
 def system_status(update, context):
     uptime = datetime.datetime.fromtimestamp(boot_time()).strftime("%Y-%m-%d %H:%M:%S")
     status = "<b>======[ SYSTEM INFO ]======</b>\n\n"
@@ -81,6 +84,7 @@ def speed_convert(size):
 
 
 @run_async
+@typing_action
 def gitpull(update, context):
     sent_msg = update.effective_message.reply_text("Pulling all changes from remote...")
     subprocess.Popen("git pull", stdout=subprocess.PIPE, shell=True)
@@ -93,6 +97,7 @@ def gitpull(update, context):
 
 
 @run_async
+@typing_action
 def restart(update, context):
     user = update.effective_message.from_user
 
