@@ -46,11 +46,20 @@ def gitpull(bot: Bot, update: Update):
     os.system("restart.bat")
     os.execv("start.bat", sys.argv)
 
+@run_async
+@dev_plus
+def restart(bot: Bot, update: Update):
+    update.effective_message.reply_text(
+        "Starting a new instance and shutting down this one"
+    )
+
+    os.system("restart.bat")
+    os.execv("start.bat", sys.argv)
 
 
 LEAVE_HANDLER = CommandHandler("leave", leave, pass_args=True)
 GITPULL_HANDLER = CommandHandler("gitpull", gitpull)
-RESTART_HANDLER = CommandHandler("reload", reload)
+RESTART_HANDLER = CommandHandler("restart", restart)
 
 dispatcher.add_handler(LEAVE_HANDLER)
 dispatcher.add_handler(GITPULL_HANDLER)
