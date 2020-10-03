@@ -20,7 +20,7 @@ from xbotg import (
     WHITELIST_USERS,
     STRICT_GBAN,
     GBAN_LOGS,
-    sw,
+    SW_API
 )
 from xbotg.modules.helper_funcs.chat_status import (
     user_admin,
