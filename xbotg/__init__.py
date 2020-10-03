@@ -4,7 +4,7 @@ import sys
 import time
 import telegram.ext as tg
 import spamwatch
-
+from pyrogram import Client, errors
 from telethon import TelegramClient
 
 StartTime = time.time()
@@ -84,6 +84,7 @@ if ENV:
     DEEPFRY_TOKEN = os.environ.get('DEEPFRY_TOKEN', None)
     API_WEATHER = os.environ.get('API_WEATHER', None)
     SW_API = os.environ.get('SW_API', None)
+    INFOPIC = bool(os.environ.get('INFOPIC', False))
 
 else:
     from xbotg.config import Development as Config
@@ -148,19 +149,9 @@ else:
     DEEPFRY_TOKEN = Config.DEEPFRY_TOKEN
     API_WEATHER = Config.API_WEATHER
     SW_API = Config.SW_API
+    INFOPIC = Config.INFOPIC
 SUDO_USERS.add(OWNER_ID)
 DEV_USERS.add(OWNER_ID)
-
-telethn = TelegramClient("xbotg", API_ID, API_HASH)
-updater = tg.Updater(TOKEN, workers=WORKERS)
-dispatcher = updater.dispatcher
-
-SUDO_USERS = list(SUDO_USERS) + list(DEV_USERS)
-DEV_USERS = list(DEV_USERS)
-WHITELIST_USERS = list(WHITELIST_USERS)
-SUPPORT_USERS = list(SUPPORT_USERS)
-SARDEGNA_USERS = list(SARDEGNA_USERS)
-SPAMMERS = list(SPAMMERS)
 
 # SpamWatch
 if SW_API == "None":
@@ -171,6 +162,19 @@ else:
         spam_watch = spamwatch.Client(SW_API)
     except Exception:
         spam_watch = None
+
+telethn = TelegramClient("xbotg", API_ID, API_HASH)
+updater = tg.Updater(TOKEN, workers=WORKERS)
+dispatcher = updater.dispatcher
+
+kp = Client("XbotPyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
+
+SUDO_USERS = list(SUDO_USERS) + list(DEV_USERS)
+DEV_USERS = list(DEV_USERS)
+WHITELIST_USERS = list(WHITELIST_USERS)
+SUPPORT_USERS = list(SUPPORT_USERS)
+SARDEGNA_USERS = list(SARDEGNA_USERS)
+SPAMMERS = list(SPAMMERS)
 
 # Load at end to ensure all prev variables have been set
 from xbotg.modules.helper_funcs.handlers import CustomCommandHandler, CustomRegexHandler, CustomMessageHandler
