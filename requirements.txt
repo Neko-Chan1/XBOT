@@ -8,6 +8,7 @@ pythonping
 psycopg2-binary
 pytz
 PyLyrics
+pyrogram
 feedparser
 pynewtonmath
 spongemock
@@ -30,6 +31,7 @@ jikanpy
 speedtest-cli
 coffeehouse
 typing
+tgcrypto
 gtts
 wikipedia
 pyowm
