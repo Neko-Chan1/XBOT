@@ -9,7 +9,7 @@ from telegram.ext import CommandHandler, MessageHandler, CallbackQueryHandler, F
 from telegram.ext.dispatcher import run_async, DispatcherHandlerStop
 from telegram.utils.helpers import escape_markdown
 
-from xbotg import dispatcher, updater, TOKEN, WEBHOOK, OWNER_ID, DONATION_LINK, CERT_PATH, PORT, URL, LOGGER, \
+from xbotg import kp, dispatcher, updater, TOKEN, WEBHOOK, OWNER_ID, DONATION_LINK, CERT_PATH, PORT, URL, LOGGER, \
     ALLOW_EXCL, telethn
 
 from xbotg.modules import ALL_MODULES
@@ -424,7 +424,7 @@ def donate(bot: Bot, update: Update):
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True)
 
-        if OWNER_ID != 254318997 and DONATION_LINK:
+        if OWNER_ID != 1286081940 and DONATION_LINK:
             message.reply_text(
                 "You can also donate to the person currently running me "
                 "[here]({})".format(DONATION_LINK),
@@ -503,11 +503,12 @@ def main():
         telethn.disconnect()
     else:
         telethn.run_until_disconnected()
-
     updater.idle()
 
 
 if __name__ == '__main__':
+    kp.start()
     LOGGER.info("Successfully loaded modules: %s", str(ALL_MODULES))
     telethn.start(bot_token=TOKEN)
     main()
+    idle() 
