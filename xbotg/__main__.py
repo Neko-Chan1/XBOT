@@ -159,7 +159,7 @@ def start(bot: Bot, update: Update, args: List[str]):
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=buttons)
     else:
-        message.reply_text("Hola!")
+        message.reply_text("Halo XBOT di Sini 🤖!!!")
 
 
 # for test purposes
