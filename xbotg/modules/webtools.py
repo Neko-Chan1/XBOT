@@ -83,55 +83,12 @@ def speed_convert(size):
     return f"{round(size, 2)} {units[zero]}"
 
 
-@run_async
-@typing_action
-def gitpull(update, context):
-    sent_msg = update.effective_message.reply_text("Pulling all changes from remote...")
-    subprocess.Popen("git pull", stdout=subprocess.PIPE, shell=True)
-
-    sent_msg_text = (
-        sent_msg.text
-        + "\n\nChanges pulled... I guess..\nContinue to restart with /reboot "
-    )
-    sent_msg.edit_text(sent_msg_text)
-
-
-@run_async
-@typing_action
-def restart(update, context):
-    user = update.effective_message.from_user
-
-    update.effective_message.reply_text(
-        "Starting a new instance and shutting down this one"
-    )
-
-    if MESSAGE_DUMP:
-        datetime_fmt = "%H:%M - %d-%m-%Y"
-        current_time = datetime.datetime.utcnow().strftime(datetime_fmt)
-        message = (
-            f"<b>Bot Restarted </b>"
-            f"<b>By :</b> <code>{html.escape(user.first_name)}</code>"
-            f"<b>\nDate Bot Restart : </b><code>{current_time}</code>"
-        )
-        context.bot.send_message(
-            chat_id=MESSAGE_DUMP,
-            text=message,
-            parse_mode=ParseMode.HTML,
-            disable_web_page_preview=True,
-        )
-
-    os.system("bash start")
-
 
 IP_HANDLER = CommandHandler("ip", get_bot_ip, filters=Filters.chat(OWNER_ID))
 SYS_STATUS_HANDLER = CommandHandler(
     "sysinfo", system_status, filters=CustomFilters.dev_filter
 )
 
-GITPULL_HANDLER = CommandHandler("gitpull", gitpull, filters=CustomFilters.dev_filter)
-RESTART_HANDLER = CommandHandler("reboot", restart, filters=CustomFilters.dev_filter)
 
 dispatcher.add_handler(IP_HANDLER)
 dispatcher.add_handler(SYS_STATUS_HANDLER)
-dispatcher.add_handler(GITPULL_HANDLER)
-dispatcher.add_handler(RESTART_HANDLER)
