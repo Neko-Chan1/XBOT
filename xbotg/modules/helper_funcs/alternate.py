@@ -14,7 +14,11 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import sys
+import traceback
+
 from functools import wraps
+from typing import Optional
 from telegram import error, ChatAction
 from xbotg.modules import languages
 
