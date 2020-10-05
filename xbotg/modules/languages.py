@@ -7,7 +7,7 @@ from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, User
 from telegram import Message, Chat, Update, Bot
 from telegram.error import BadRequest
 from telegram.ext import CommandHandler, run_async, DispatcherHandlerStop, MessageHandler, Filters, CallbackQueryHandler
-from xbotg import dispatcher, spamcheck, LOGGER
+from xbotg import dispatcher, LOGGER
 from xbotg.modules.disable import DisableAbleCommandHandler
 from xbotg.modules.helper_funcs.chat_status import user_admin_no_reply, user_admin
 
@@ -82,7 +82,6 @@ def tl(message, text):
 
 
 @run_async
-@spamcheck
 @user_admin
 def set_language(update, context):
 	msg = update.effective_message  # type: Optional[Message]
