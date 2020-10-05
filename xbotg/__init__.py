@@ -193,36 +193,3 @@ def spamfilters(_text, user_id, _chat_id):
         return True
     else:
         return False
-
-def spamcheck(func):
-	@wraps(func)
-	def check_user(update, context, *args, **kwargs):
-		chat = update.effective_chat
-		user = update.effective_user
-		message = update.effective_message
-		# If not user, return function
-		if not user:
-			return func(update, context, *args, **kwargs)
-		# If msg from self, return True
-		if user and user.id == context.bot.id:
-			return False
-		if IS_DEBUG:
-			print("{} | {} | {} | {}".format(message.text or message.caption, user.id, message.chat.title, chat.id))
-		if antispam_module:
-			parsing_date = time.mktime(message.date.timetuple())
-			detecting = detect_user(user.id, chat.id, message, parsing_date)
-			if detecting:
-				return False
-			antispam_restrict_user(user.id, parsing_date)
-		if int(user.id) in SPAMMERS:
-			if IS_DEBUG:
-				print("^ This user is spammer!")
-			return False
-		elif int(chat.id) in GROUP_BLACKLIST:
-			dispatcher.bot.sendMessage(chat.id, "This group is in blacklist, i'm leave...")
-			dispatcher.bot.leaveChat(chat.id)
-			return False
-		return func(update, context, *args, **kwargs)
-
-	return check_user
-
