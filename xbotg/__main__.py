@@ -18,18 +18,19 @@ from xbotg.modules.connection import connect_button
 from xbotg.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
-╭━━━━━━━━━━━━━━━━━━━━━╮
-Hi {}, my name is {}!
-I am an manager group management bot with a lot of Special Features.
-You can find the list of available commands with /help.
+━━━━━━━━━━━━━━━━━━━━━
+
+Hello {}
+my name is {}
+I am an manager group management bot
+with a lot of Special Features.
+You can find the list of available commands
+with klik 👉 /help or button below
 
 ╾───────────────────╼
-->XBOT OFFICIAL BY ➳͜͡❂ঔৣ⃕͜x͠N͜͡ᎬᎳᏴᏆᎬ࿐
--> Channel [XBOT Support](https://t.me/XBOT_SUPPORT) if I go offline
-╾───────────────────╼
 
-`Maintained by` ➳͜͡❂ঔৣ⃕͜x͠N͜͡ᎬᎳᏴᏆᎬ
-╰━━━━━━━━━━━━━━━━━━━━━╯
+  Maintained by ➳͜͡❂ঔৣ⃕͜x͠N͜͡ᎬᎳᏴᏆᎬ
+━━━━━━━━━━━━━━━━━━━━━
 
 """
 
@@ -39,8 +40,6 @@ I'm a part of Eagle Union.
 Have a look at the following for an idea of some of \
 the things I can help you with.
 I'm managed by [➳͜͡❂ঔৣ⃕͜x͠N͜͡ᎬᎳᏴᏆᎬ࿐](https://t.me/X_Newbie)
-Chatbot module from [TheRealPhoenixBot](https://github.com/rsktg/TheRealPhoenixBot.git)
-Disaster module from [SaitamaRobot](https://github.com/AnimeKaizoku/SaitamaRobot)
 *Main* commands available:
  - /start: start the bot
  - /help: PM's you this message.
@@ -148,7 +147,7 @@ def start(bot: Bot, update: Update, args: List[str]):
             first_name = update.effective_user.first_name
             buttons = InlineKeyboardMarkup(
                 [[InlineKeyboardButton(text="🤖 Add XBOT to your group", url="https://t.me/XBOTGBOT?startgroup=new")],
-                 [InlineKeyboardButton(text="❓ Help", url="https://t.me/XBOTGBOT?start=help"), InlineKeyboardButton(text="⚙️ Connections", url="https://t.me/XBOTGBOT?start=connect")],
+                 [InlineKeyboardButton(text="❓ Help", url="https://t.me/XBOTGBOT?start=help"), InlineKeyboardButton(text="⚙️ Connections", url="https://t.me/XBOTGBOT?connect=connect")],
                  [InlineKeyboardButton(text="🚫 Global Logs", url="https://t.me/XBOT_SUPPORT"), InlineKeyboardButton(text="🔔 Update Channel", url="https://t.me/XBOT_SUPPORT")]])
             message.reply_photo(
                 LYNDA_IMG,
