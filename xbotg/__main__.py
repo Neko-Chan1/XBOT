@@ -10,10 +10,14 @@ from telegram.ext.dispatcher import run_async, DispatcherHandlerStop
 from telegram.utils.helpers import escape_markdown
 
 from xbotg import kp, dispatcher, updater, TOKEN, WEBHOOK, OWNER_ID, DONATION_LINK, CERT_PATH, PORT, URL, LOGGER, \
-    ALLOW_EXCL, telethn
+    ALLOW_EXCL, telethn, spamcheck
 
 from xbotg.modules import ALL_MODULES
+from xbotg.modules.languages import tl
 from xbotg.modules.helper_funcs.chat_status import is_user_admin
+from xbotg.modules.sql import languages_sql as langsql
+from xbotg.modules.languages import set_language
+from xbotg.modules.connection import connect_button
 from xbotg.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
@@ -146,9 +150,10 @@ def start(bot: Bot, update: Update, args: List[str]):
         else:
             first_name = update.effective_user.first_name
             buttons = InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="👥 Add XBOT to your group", url="https://t.me/XBOTGBOT?startgroup=new")],
-                 [InlineKeyboardButton(text="🙋 Support Group", url="https://t.me/XBOT_SUPPORT"), InlineKeyboardButton(text="🚫 Global Logs", url="https://t.me/XBOT_SUPPORT")],
-                 [InlineKeyboardButton(text="❔ Help", callback_data="help_back"), InlineKeyboardButton(text="🔔 Update Channel", url="https://t.me/XBOT_SUPPORT")]])
+                [[InlineKeyboardButton(text="🤖 Add XBOT to your group", url="https://t.me/XBOTGBOT?startgroup=new")],
+                 [InlineKeyboardButton(text="❓ Help", url="https://t.me/XBOTGBOT?start=help"), InlineKeyboardButton(text="⚙️ Connections", callback_data="main_connect")],
+                 [InlineKeyboardButton(text="🚫 Global Logs", url="https://t.me/XBOT_SUPPORT"), InlineKeyboardButton(text="🔔 Update Channel", url="https://t.me/XBOT_SUPPORT")],
+                 [InlineKeyboardButton(text="🇺🇲 Language", callback_data="main_setlang"]])
             message.reply_photo(
                 LYNDA_IMG,
                 PM_START_TEXT.format(
