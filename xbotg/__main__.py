@@ -149,7 +149,7 @@ def start(bot: Bot, update: Update, args: List[str]):
             buttons = InlineKeyboardMarkup(
                 [[InlineKeyboardButton(text="🤖 Add XBOT to your group", url="https://t.me/XBOTGBOT?startgroup=new")],
                  [InlineKeyboardButton(text="❓ Help", url="https://t.me/XBOTGBOT?start=help"), InlineKeyboardButton(text="⚙️ Connections", callback_data="main_connect")],
-                 [InlineKeyboardButton(text="🚫 Global Logs", url="https://t.me/XBOT_SUPPORT"), InlineKeyboardButton(text="🔔 Update Channel", url="https://t.me/XBOT_SUPPORT")],
+                 [InlineKeyboardButton(text="🚫 Global Logs", url="https://t.me/XBOT_SUPPORT"), InlineKeyboardButton(text="🔔 Update Channel", url="https://t.me/XBOT_SUPPORT")])
             message.reply_photo(
                 LYNDA_IMG,
                 PM_START_TEXT.format(
