@@ -1,6 +1,11 @@
-from functools import wraps
+import sys
+import traceback
 
+from functools import wraps
+from typing import Optional
 from telegram import Bot, Chat, ChatMember, Update, ParseMode
+from telegram import error
+from xbotg.modules import languages
 
 from xbotg import (
     dispatcher,
