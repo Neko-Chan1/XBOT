@@ -9,7 +9,6 @@ from telegram.ext import CommandHandler, CallbackQueryHandler, run_async
 import xbotg.modules.sql.connection_sql as sql
 from xbotg import dispatcher, SUDO_USERS, DEV_USERS, spamfilters
 from xbotg.modules.helper_funcs import chat_status
-from xbotg.modules import languages
 from xbotg.modules.helper_funcs.alternate import send_message
 
 user_admin = chat_status.user_admin
