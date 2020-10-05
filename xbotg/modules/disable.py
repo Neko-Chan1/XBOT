@@ -6,7 +6,6 @@ from telegram import Bot, Update, ParseMode
 from telegram.ext import CommandHandler, RegexHandler, MessageHandler
 from telegram.utils.helpers import escape_markdown
 
-from xbotg.modules import languages
 from xbotg.modules.helper_funcs.alternate import send_message
 from xbotg import dispatcher
 from xbotg.modules.helper_funcs.handlers import CMD_STARTERS, CustomCommandHandler
