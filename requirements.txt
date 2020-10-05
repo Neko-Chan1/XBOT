@@ -45,3 +45,8 @@ telethon
 covid
 alphabet_detector
 bleach
+hurry.filesize
+PyAML
+markdown2
+tldextract
+kbbi
