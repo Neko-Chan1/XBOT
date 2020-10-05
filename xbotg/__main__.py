@@ -10,7 +10,7 @@ from telegram.ext.dispatcher import run_async, DispatcherHandlerStop
 from telegram.utils.helpers import escape_markdown
 
 from xbotg import kp, dispatcher, updater, TOKEN, WEBHOOK, OWNER_ID, DONATION_LINK, CERT_PATH, PORT, URL, LOGGER, \
-    ALLOW_EXCL, telethn, spamcheck
+    ALLOW_EXCL, telethn
 
 from xbotg.modules import ALL_MODULES
 from xbotg.modules.languages import tl
