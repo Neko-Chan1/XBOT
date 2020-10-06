@@ -3,12 +3,16 @@ import requests
 import datetime
 import platform
 import time
-
+import urllib
+from typing import Optional, List
+from telegram import ChatAction
 from psutil import cpu_percent, virtual_memory, disk_usage, boot_time
+from urllib.request import urlopen, urlretrieve
+from urllib.parse import quote_plus, urlencode
 from platform import python_version
 from telegram import __version__
 from spamwatch import __version__ as __sw__
-from telegram import Update, Bot, ParseMode
+from telegram import Message, Chat, Update, Bot, MessageEntity, ParseMode
 from telegram.ext import CommandHandler, run_async, Filters
 from xbotg import dispatcher, OWNER_ID
 from xbotg.modules.helper_funcs.filters import CustomFilters
@@ -17,13 +21,9 @@ from xbotg.modules.helper_funcs.alternate import typing_action
 
 
 @run_async
-@typing_action
 def get_bot_ip(bot: Bot, update: Update):
-    """ Sends the bot's IP address, so as to be able to ssh in if necessary.
-        OWNER ONLY.
-    """
     res = requests.get("http://ipinfo.io/ip")
-    update.message.reply_text(res.text)
+    update.message.reply_text(res)
 
 
 
