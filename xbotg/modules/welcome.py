@@ -2,17 +2,21 @@ import html
 import random
 import re
 import time
-from typing import List
+from datetime import datetime
+from pytz import timezone
+import threading
+import requests
+from typing import Optional, List
 from functools import partial
 
-from telegram import Update, Bot
+from telegram import Message, Chat, Update, Bot, User, CallbackQuery
 from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.error import BadRequest
 from telegram.ext import MessageHandler, Filters, CommandHandler, run_async, CallbackQueryHandler, JobQueue
 from telegram.utils.helpers import mention_markdown, mention_html, escape_markdown
 
 import xbotg.modules.sql.welcome_sql as sql
-from xbotg import dispatcher, OWNER_ID, DEV_USERS, SUDO_USERS, SUPPORT_USERS, SARDEGNA_USERS, WHITELIST_USERS, LOGGER, spam_watch
+from xbotg import dispatcher, OWNER_ID, DEV_USERS, SUDO_USERS, SUPPORT_USERS, SARDEGNA_USERS, WHITELIST_USERS, LOGGER, spam_watch, MESSAGE_DUMP
 from xbotg.modules.helper_funcs.chat_status import user_admin, is_user_ban_protected
 from xbotg.modules.helper_funcs.misc import build_keyboard, revert_buttons
 from xbotg.modules.helper_funcs.msg_types import get_welcome_type
@@ -117,6 +121,18 @@ def new_member(bot: Bot, update: Update, job_queue: JobQueue):
                 welcome_log = (f"{html.escape(chat.title)}\n"
                                f"#USER_JOINED\n"
                                f"Bot Owner just joined the chat")
+
+            # Don't welcome yourself
+			elif new_mem.id == context.bot.id:
+				context.bot.send_message(
+					MESSAGE_DUMP,
+					"<b>I was added in a group</b>\n" \
+					"#AddGroup\n" \
+					"<b>Chat name:</b> {}\n" \
+					"<b>ID:</b> <code>{}</code>".format(chat.title, chat.id),
+					parse_mode=ParseMode.HTML
+				)
+			
 
             # Welcome Devs
             elif new_mem.id in DEV_USERS:
