@@ -19,11 +19,11 @@ import time
 
 import requests
 from pytz import country_names as cname
-from telegram import ParseMode
+from telegram import ParseMode, Update, Bot, MessageEntity
 from telegram.error import BadRequest
 from telegram.ext import run_async
 
-from xbotg import API_WEATHER as APPID
+from xbotg import API_WEATHER
 from xbotg import dispatcher
 from xbotg.modules.disable import DisableAbleCommandHandler
 from xbotg.modules.helper_funcs.alternate import typing_action
