@@ -21,8 +21,8 @@ class CustomCommandHandler(CommandHandler):
         super().__init__(command, callback, **kwargs)
 
         def check_update(self, update):
-        if (isinstance(update, Update)
-                and (update.message or update.edited_message and self.allow_edited)):
+        
+            if (isinstance(update, Update) and (update.message or update.edited_message and self.allow_edited)):
             message = update.message or update.edited_message
 
             if sql.is_user_blacklisted(update.effective_user.id):
