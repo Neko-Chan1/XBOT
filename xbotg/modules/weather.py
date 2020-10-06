@@ -11,8 +11,7 @@ from xbotg.modules.helper_funcs.alternate import typing_action
 
 @run_async
 @typing_action
-def weather(update, context):
-    args = context.args
+def weather(bot, update, args):
     if len(args) == 0:
         reply = "Write a location to check the weather."
         del_msg = update.effective_message.reply_text(
