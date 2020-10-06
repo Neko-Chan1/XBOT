@@ -41,7 +41,7 @@ psutil
 py-cpuinfo
 nekos.py
 spamwatch
-telethon
+telethon==1.16.4
 covid
 alphabet_detector
 bleach
