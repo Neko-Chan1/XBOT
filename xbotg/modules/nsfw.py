@@ -16,12 +16,12 @@ from xbotg import dispatcher
 from xbotg.__main__ import STATS, USER_INFO
 from xbotg.modules.disable import DisableAbleCommandHandler
 
-def butts(update, context):
+def butts(bot: Bot, update: Update, args, context):
     nsfw = requests.get('http://api.obutts.ru/noise/1').json()[0]["preview"]
     final = "http://media.obutts.ru/{}".format(nsfw)
     update.message.reply_photo(final)
 
-def boobs(update, context):
+def boobs(bot: Bot, update: Update, context):
     nsfw = requests.get('http://api.oboobs.ru/noise/1').json()[0]["preview"]
     final = "http://media.oboobs.ru/{}".format(nsfw)
     update.message.reply_photo(final)
