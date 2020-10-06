@@ -1,5 +1,11 @@
+import json
 import pyowm
-from pyowm import exceptions
+from requests import get
+from datetime import datetime
+from pytz import country_timezones as c_tz
+from pytz import timezone as tz
+from pytz import country_names as c_n
+from telegram.error import BadRequest
 from telegram import Message, Chat, Update, Bot
 from telegram.ext import run_async
 
