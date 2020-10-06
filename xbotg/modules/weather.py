@@ -26,11 +26,9 @@ from telegram.ext import run_async
 from xbotg import API_WEATHER
 from xbotg import dispatcher
 from xbotg.modules.disable import DisableAbleCommandHandler
-from xbotg.modules.helper_funcs.alternate import typing_action
 
 
 @run_async
-@typing_action
 def weather(_bot: Bot, update: Update, args):
     if len(args) == 0:
         reply = "Write a location to check the weather."
