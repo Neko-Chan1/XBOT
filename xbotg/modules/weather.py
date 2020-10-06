@@ -23,7 +23,7 @@ from telegram import ParseMode, Update, Bot, MessageEntity
 from telegram.error import BadRequest
 from telegram.ext import run_async
 
-from xbotg import API_WEATHER
+from xbotg import API_WEATHER as APPID
 from xbotg import dispatcher
 from xbotg.modules.disable import DisableAbleCommandHandler
 
