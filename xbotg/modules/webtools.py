@@ -1,54 +1,37 @@
-# UserindoBot
-# Copyright (C) 2020  UserindoBot Team, <https://github.com/MoveAngel/UserIndoBot.git>
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-import datetime
-import html
-import os
-import platform
-import subprocess
-import time
 import speedtest
-from platform import python_version
-
 import requests
-from psutil import boot_time, cpu_percent, disk_usage, virtual_memory
-from spamwatch import __version__ as __sw__
-from telegram import ParseMode, __version__
-from telegram.error import BadRequest
-from telegram.ext import CommandHandler, Filters, run_async
+import datetime
+import platform
+import time
 
-from xbotg import MESSAGE_DUMP, OWNER_ID, dispatcher
-from xbotg.modules.helper_funcs.alternate import typing_action
+from psutil import cpu_percent, virtual_memory, disk_usage, boot_time
+from platform import python_version
+from telegram import __version__
+from spamwatch import __version__ as __sw__
+from telegram import ParseMode
+from telegram.ext import CommandHandler, run_async, Filters
+from xbotg import dispatcher, OWNER_ID
 from xbotg.modules.helper_funcs.filters import CustomFilters
+from xbotg.modules.helper_funcs.alternate import typing_action
+
 
 
 @run_async
 @typing_action
 def get_bot_ip(update, context):
-    """Sends the bot's IP address, so as to be able to ssh in if necessary.
-    OWNER ONLY.
+    """ Sends the bot's IP address, so as to be able to ssh in if necessary.
+        OWNER ONLY.
     """
     res = requests.get("http://ipinfo.io/ip")
     update.message.reply_text(res.text)
 
 
+
 @run_async
 @typing_action
 def system_status(update, context):
-    uptime = datetime.datetime.fromtimestamp(boot_time()).strftime("%Y-%m-%d %H:%M:%S")
+    uptime = datetime.datetime.fromtimestamp(
+        boot_time()).strftime("%Y-%m-%d %H:%M:%S")
     status = "<b>======[ SYSTEM INFO ]======</b>\n\n"
     status += "<b>System uptime:</b> <code>" + str(uptime) + "</code>\n"
 
@@ -69,26 +52,16 @@ def system_status(update, context):
     status += "<b>Python version:</b> <code>" + python_version() + "</code>\n"
     status += "<b>Library version:</b> <code>" + str(__version__) + "</code>\n"
     status += "<b>Spamwatch API:</b> <code>" + str(__sw__) + "</code>\n"
-    context.bot.sendMessage(update.effective_chat.id, status, parse_mode=ParseMode.HTML)
-
-
-def speed_convert(size):
-    """Hi human, you can't read bytes?"""
-    power = 2 ** 10
-    zero = 0
-    units = {0: "", 1: "Kb/s", 2: "Mb/s", 3: "Gb/s", 4: "Tb/s"}
-    while size > power:
-        size /= power
-        zero += 1
-    return f"{round(size, 2)} {units[zero]}"
-
+    context.bot.sendMessage(
+        update.effective_chat.id,
+        status,
+        parse_mode=ParseMode.HTML)
 
 
 IP_HANDLER = CommandHandler("ip", get_bot_ip, filters=Filters.chat(OWNER_ID))
 SYS_STATUS_HANDLER = CommandHandler(
-    "sysinfo", system_status, filters=CustomFilters.dev_filter
+    "sysinfo", system_status, filters=CustomFilters.sudo_filter
 )
-
 
 dispatcher.add_handler(IP_HANDLER)
 dispatcher.add_handler(SYS_STATUS_HANDLER)
