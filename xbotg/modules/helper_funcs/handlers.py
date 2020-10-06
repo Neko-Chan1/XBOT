@@ -1,6 +1,8 @@
+import telegram.ext as tg
 from telegram import Update
 from telegram.ext import CommandHandler, RegexHandler, MessageHandler
 
+import xbot.modules.sql.global_bans as sql
 import xbotg.modules.sql.blacklistusers_sql as sql
 from xbotg import ALLOW_EXCL
 
