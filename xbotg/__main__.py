@@ -507,7 +507,6 @@ def main():
 
 
 if __name__ == '__main__':
-    kp.start()
     LOGGER.info("Successfully loaded modules: %s", str(ALL_MODULES))
     telethn.start(bot_token=TOKEN)
     main()
