@@ -18,7 +18,7 @@ from xbotg.modules.helper_funcs.alternate import typing_action
 
 @run_async
 @typing_action
-def get_bot_ip(update, context):
+def get_bot_ip(bot: Bot, update: Update):
     """ Sends the bot's IP address, so as to be able to ssh in if necessary.
         OWNER ONLY.
     """
@@ -29,7 +29,7 @@ def get_bot_ip(update, context):
 
 @run_async
 @typing_action
-def system_status(update, context):
+def system_status(bot: Bot, update: Update):
     uptime = datetime.datetime.fromtimestamp(
         boot_time()).strftime("%Y-%m-%d %H:%M:%S")
     status = "<b>======[ SYSTEM INFO ]======</b>\n\n"
