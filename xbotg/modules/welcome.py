@@ -162,58 +162,6 @@ def new_member(bot: Bot, update: Update, job_queue: JobQueue):
                 # edge case of empty name - occurs for some bugs.
                 first_name = new_mem.first_name or "PersonWithNoName"
 
-          # Don't welcome yourself
-			elif new_mem.id == context.bot.id:
-				context.bot.send_message(
-					MESSAGE_DUMP,
-					"<b>I was added in a group</b>\n" \
-					"#AddGroup\n" \
-					"<b>Chat name:</b> {}\n" \
-					"<b>ID:</b> <code>{}</code>".format(chat.title, chat.id),
-					parse_mode=ParseMode.HTML
-				)
-				context.bot.send_message(chat.id,
-								"Thanks for adding me into your group!.")
-
-			else:
-				# If welcome message is media, send with appropriate function
-				if welc_type != sql.Types.TEXT and welc_type != sql.Types.BUTTON_TEXT:
-					reply = update.message.message_id
-					# Clean service welcome
-					if cleanserv:
-						reply = False
-					# Formatting text
-					first_name = new_mem.first_name or "PersonWithNoName"  # edge case of empty name - occurs for some bugs.
-					if new_mem.last_name:
-						fullname = "{} {}".format(first_name, new_mem.last_name)
-					else:
-						fullname = first_name
-					count = chat.get_members_count()
-					mention = mention_markdown(new_mem.id, first_name)
-                                        # Current time in UTC
-					now_utc = datetime.now(timezone('UTC'))
-
-					# Convert to Jakarta time zone
-					jakarta_timezone = now_utc.astimezone(timezone('Asia/Jakarta'))
-
-					if jakarta_timezone.hour < 4:
-					    waktu = "Selamat Dini Hari 🌚"
-					elif 4 <= jakarta_timezone.hour < 12:
-					    waktu = "Selamat Pagi 🌤"
-					elif 12 <= jakarta_timezone.hour < 15:
-					    waktu = "Selamat Siang ☀"
-					elif 15 <= jakarta_timezone.hour < 17:
-					    waktu = "Selamat Sore ⛅"
-					elif 17 <= jakarta_timezone.hour < 19:
-					    waktu = "Selamat Petang 🌥"
-					else:
-					    waktu = "Selamat Malam 🌙"
-					if new_mem.username:
-						username = "@" + escape_markdown(new_mem.username)
-					else:
-						username = mention
-					rules = "https://t.me/" + context.bot.username + "?start=" + str(chat.id)
-
                 if cust_welcome:
                     if cust_welcome == sql.DEFAULT_WELCOME:
                         cust_welcome = random.choice(
