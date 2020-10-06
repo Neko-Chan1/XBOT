@@ -178,7 +178,7 @@ def ping(bot: Bot, update: Update):
     message = msg.reply_text("Pinging...")
     end_time = time.time()
     ping_time = round((end_time - start_time) * 1000, 3)
-    message.edit_text("*Pong!!!*\n`{}ms`".format(ping_time),
+    message.edit_text("*Pong!!!*🏓\n`{}ms`".format(ping_time),
                       parse_mode=ParseMode.MARKDOWN)
 
 
