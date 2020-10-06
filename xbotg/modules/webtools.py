@@ -52,7 +52,7 @@ def system_status(bot: Bot, update: Update):
     status += "<b>Python version:</b> <code>" + python_version() + "</code>\n"
     status += "<b>Library version:</b> <code>" + str(__version__) + "</code>\n"
     status += "<b>Spamwatch API:</b> <code>" + str(__sw__) + "</code>\n"
-    context.bot.sendMessage(
+    update.effective_message.reply(
         update.effective_chat.id,
         status,
         parse_mode=ParseMode.HTML)
