@@ -123,7 +123,7 @@ def new_member(bot: Bot, update: Update, job_queue: JobQueue):
                                f"Bot Owner just joined the chat")
 
             # Don't welcome yourself
-			elif new_mem.id == context.bot.id:
+			elif new_mem.id == OWNER_ID:
 				context.bot.send_message(
 					MESSAGE_DUMP,
 					"<b>I was added in a group</b>\n" \
