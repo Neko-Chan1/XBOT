@@ -50,3 +50,6 @@ PyAML
 markdown2
 tldextract
 kbbi
+gsearch
+translations
+translator
