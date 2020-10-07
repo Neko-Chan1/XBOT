@@ -53,3 +53,4 @@ kbbi
 gsearch
 translations
 translator
+search_engine_parser
