@@ -13,20 +13,16 @@ def google(bot: Bot, update: Update):
         page = page[0]
         page = page.replace("page=", "")
         match = match.replace("page=" + page[0], "")
-    except IndexError:
         page = 1
     search_args = (str(match), int(page))
     gsearch = GoogleSearch()
     gresults = await gsearch.async_search(*search_args)
     msg = ""
     for i in range(10):
-        try:
             title = gresults["titles"][i]
             link = gresults["links"][i]
             desc = gresults["descriptions"][i]
             msg += f"[{title}]({link})\n`{desc}`\n\n"
-        except IndexError:
-            break
     update.effective_message.reply_markdown(
         "**Search Query:**\n`" + match + "`\n\n**Results:**\n" + msg, link_preview=False
     )
