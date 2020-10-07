@@ -9,8 +9,7 @@ from xbotg import dispatcher
 from xbotg.modules.disable import DisableAbleCommandHandler
 
 def google(bot: Bot, update: Update):
-         page = update.effective_message.text.split(" ", 1)
-    try:
+        page = update.effective_message.text.split(" ", 1)
         page = page[0]
         page = page.replace("page=", "")
         match = match.replace("page=" + page[0], "")
