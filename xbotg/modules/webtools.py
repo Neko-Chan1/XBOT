@@ -28,7 +28,6 @@ def get_bot_ip(bot: Bot, update: Update):
 
 
 @run_async
-@typing_action
 def system_status(bot: Bot, update: Update):
     uptime = datetime.datetime.fromtimestamp(
         boot_time()).strftime("%Y-%m-%d %H:%M:%S")
