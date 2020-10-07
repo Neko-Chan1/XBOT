@@ -1,4 +1,7 @@
 import subprocess
+from search_engine_parser import YahooSearch as GoogleSearch
+from re import findall
+from requests import get, post, exceptions
 from telegram import Update, Bot
 from telegram.ext import run_async, Filters
 
@@ -6,10 +9,28 @@ from xbotg import dispatcher
 from xbotg.modules.disable import DisableAbleCommandHandler
 
 def google(bot: Bot, update: Update):
-        query = update.effective_message.text.split(" ", 1)
-        result_ = subprocess.run(['gsearch', str(query[1])], stdout=subprocess.PIPE)
-        result = str(result_.stdout.decode())
-        update.effective_message.reply_markdown('*Searching:*\n`' + str(query[1]) + '`\n\n*RESULTS:*\n' + result)
+         page = update.effective_message.text.split(" ", 1)
+    try:
+        page = page[0]
+        page = page.replace("page=", "")
+        match = match.replace("page=" + page[0], "")
+    except IndexError:
+        page = 1
+    search_args = (str(match), int(page))
+    gsearch = GoogleSearch()
+    gresults = await gsearch.async_search(*search_args)
+    msg = ""
+    for i in range(10):
+        try:
+            title = gresults["titles"][i]
+            link = gresults["links"][i]
+            desc = gresults["descriptions"][i]
+            msg += f"[{title}]({link})\n`{desc}`\n\n"
+        except IndexError:
+            break
+    update.effective_message.reply_markdown(
+        "**Search Query:**\n`" + match + "`\n\n**Results:**\n" + msg, link_preview=False
+    )
 
 __help__ = """
  - /google: Google search
