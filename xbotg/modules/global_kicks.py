@@ -56,7 +56,7 @@ def gkick(bot: Bot, update: Update, args: List[str]):
         message.reply_text("Wow! Someone's so noob that he want to gkick my owner! *Grabs Potato Chips*")
         return
     if int(user_id) == bot.id:
-        message.reply_text("OHH... Let me kick myself.. No way... ���")
+        message.reply_text("OHH... Let me kick myself.. No way... ")
         return
     chats = get_all_chats()
     message.reply_text("Globally kicking user @{}".format(user_chat.username))
