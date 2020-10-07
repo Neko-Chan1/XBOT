@@ -14,7 +14,7 @@ def google(bot: Bot, update: Update):
         page = page.replace("page=", "")
         match = match.replace("page=" + page[0], "")
         page = 1
-    search_args = (str(match))
+    search_args = (str(match)
     gsearch = GoogleSearch()
     gresults = await gsearch.async_search(*search_args)
     msg = ""
