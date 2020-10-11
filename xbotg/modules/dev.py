@@ -70,7 +70,7 @@ def restart(bot: Bot, update: Update):
             f"<b>By :</b> <code>{html.escape(user.first_name)}</code>"
             f"<b>\nDate Bot Restart : </b><code>{current_time}</code>"
         )
-        await.bot.send_message(
+        bot.send_message(
             chat_id=MESSAGE_DUMP,
             text=message,
             parse_mode=ParseMode.HTML,
