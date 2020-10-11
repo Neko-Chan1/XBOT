@@ -76,7 +76,7 @@ def restart(bot: Bot, update: Update):
             disable_web_page_preview=True,
         )
     os.system("restart.bat")
-    os.system("start.bat", sys.argv)
+    
 
 
 LEAVE_HANDLER = CommandHandler("leave", leave, pass_args=True)
