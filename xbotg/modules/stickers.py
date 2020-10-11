@@ -1,10 +1,13 @@
 import hashlib
+import io
 import os
 import math
+import random
 import urllib.request as urllib
 
 from io import BytesIO
 from PIL import Image
+from os import remove
 
 from typing import Optional, List
 from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton
@@ -116,8 +119,8 @@ def kang(bot: Bot, update: Update, args: List[str]):
                 emojis=sticker_emoji,
             )
             msg.reply_text(
-                f"Sticker successfully added to [pack](t.me/addstickers/{packname})"
-                + f"\nEmoji is: {sticker_emoji}",
+                f"Sticker Berhasil di Buat\nSilahkan [Klik Disini](t.me/addstickers/{packname})"
+                + f"\nUntuk Menggunakan Sticker {sticker_emoji}",
                 parse_mode=ParseMode.MARKDOWN,
             )
         except OSError as e:
@@ -144,8 +147,8 @@ def kang(bot: Bot, update: Update, args: List[str]):
                     emojis=sticker_emoji,
                 )
                 msg.reply_text(
-                    f"Sticker successfully added to [pack](t.me/addstickers/{packname})"
-                    + f"\nEmoji is: {sticker_emoji}",
+                    f"Sticker Berhasil di Buat\nSilahkan [Klik Disini](t.me/addstickers/{packname})"
+                    + f"\nUntuk Menggunakan Sticker {sticker_emoji}",
                     parse_mode=ParseMode.MARKDOWN,
                 )
             elif e.message == "Invalid sticker emojis":
@@ -154,7 +157,7 @@ def kang(bot: Bot, update: Update, args: List[str]):
                 msg.reply_text("Max packsize reached.")
             elif e.message == "Internal Server Error: sticker set not found (500)":
                 msg.reply_text(
-                    "Sticker successfully added to [pack](t.me/addstickers/%s)"
+                    "Sticker Berhasil di Buat\nSilahkan [Klik Disini](t.me/addstickers/%s)"
                     % packname
                     + "\n"
                     "Emoji is:" + " " + sticker_emoji,
