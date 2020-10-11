@@ -1,14 +1,24 @@
+import io
 import os
 import subprocess
+import platform
+import datetime
+import html
+import time
 import sys
+import requests
 from time import sleep
 from typing import List
-
+from random import randint
 from telegram import Bot, Update, TelegramError
-from telegram.ext import CommandHandler, run_async
+from telegram.ext import CommandHandler, run_async, Filters
+from telegram import ParseMode
+from telegram.error import BadRequest
 
-from xbotg import dispatcher
+from xbotg import dispatcher, MESSAGE_DUMP, OWNER_ID
 from xbotg.modules.helper_funcs.chat_status import dev_plus
+from xbotg.modules.helper_funcs.alternate import typing_action
+from xbotg.modules.helper_funcs.filters import CustomFilters
 
 
 @run_async
@@ -52,7 +62,20 @@ def restart(bot: Bot, update: Update):
     update.effective_message.reply_text(
         "Starting a new instance and shutting down this one"
     )
-
+    if MESSAGE_DUMP:
+        datetime_fmt = "%H:%M - %d-%m-%Y"
+        current_time = datetime.datetime.utcnow().strftime(datetime_fmt)
+        message = (
+            f"<b>Bot Restarted </b>"
+            f"<b>By :</b> <code>{html.escape(user.first_name)}</code>"
+            f"<b>\nDate Bot Restart : </b><code>{current_time}</code>"
+        )
+        await.bot.send_message(
+            chat_id=MESSAGE_DUMP,
+            text=message,
+            parse_mode=ParseMode.HTML,
+            disable_web_page_preview=True,
+        )
     os.system("restart.bat")
     os.execv("start.bat", sys.argv)
 
