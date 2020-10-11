@@ -16,3 +16,6 @@ kangsticker.png
 venv
 xbotg.session-journal
 xbotg/elevated_users.json
+start.bat
+restart.bat
+start_service.bat
