@@ -76,7 +76,7 @@ def restart(bot: Bot, update: Update):
             disable_web_page_preview=True,
         )
 
-        os.system("restart.bat")
+     os.system("bash start")
     
 
 
