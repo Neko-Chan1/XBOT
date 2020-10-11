@@ -75,8 +75,7 @@ def restart(bot: Bot, update: Update):
             parse_mode=ParseMode.HTML,
             disable_web_page_preview=True,
         )
-
-     os.system("bash start")
+      os.system("bash start")
     
 
 
