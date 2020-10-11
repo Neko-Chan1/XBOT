@@ -1,7 +1,6 @@
 import io
 import os
 import subprocess
-import platform
 import datetime
 import html
 import time
@@ -9,16 +8,14 @@ import sys
 import requests
 from time import sleep
 from typing import List
-from random import randint
 from telegram import Bot, Update, TelegramError
-from telegram.ext import CommandHandler, run_async, Filters
+from telegram.ext import CommandHandler, run_async
 from telegram import ParseMode
 from telegram.error import BadRequest
 
-from xbotg import dispatcher, MESSAGE_DUMP, OWNER_ID
+from xbotg import dispatcher, MESSAGE_DUMP
 from xbotg.modules.helper_funcs.chat_status import dev_plus
 from xbotg.modules.helper_funcs.alternate import typing_action
-from xbotg.modules.helper_funcs.filters import CustomFilters
 
 
 @run_async
