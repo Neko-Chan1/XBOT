@@ -47,9 +47,7 @@ alphabet_detector
 bleach
 hurry.filesize
 PyAML
-markdown2
 tldextract
-kbbi
 gsearch
 translator
 search_engine_parser
