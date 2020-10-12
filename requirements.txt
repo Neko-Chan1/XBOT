@@ -9,6 +9,7 @@ psycopg2-binary
 pytz
 PyLyrics
 pyrogram
+telethon
 feedparser
 pynewtonmath
 spongemock
