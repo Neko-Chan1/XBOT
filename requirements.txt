@@ -50,6 +50,5 @@ markdown2
 tldextract
 kbbi
 gsearch
-translations
 translator
 search_engine_parser
