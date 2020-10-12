@@ -150,13 +150,11 @@ def new_member(bot: Bot, update: Update, job_queue: JobQueue):
 
             # Welcome yourself
             elif new_mem.id == bot.id:
-                update.effective_message.reply_text(
+                bot.send_message(
                     "Hey 😍 {}, I'm {}! Thank you for adding me to {}".format(
-                        user.first_name, bot.first_name, chat_name
-                    ),
-                    reply_to_message_id=reply,
+                        first_name, bot.first_name, chatname
+                    ),                
                 )
-
                 bot.send_message(
                     MESSAGE_DUMP,
                     "XBOT have been added to <pre>{}</pre> with ID: \n<pre>{}</pre>".format(
