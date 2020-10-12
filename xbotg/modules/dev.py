@@ -29,7 +29,6 @@ def leave(bot: Bot, update: Update, args: List[str]):
 
 
 
-
 LEAVE_HANDLER = CommandHandler("leave", leave, pass_args=True)
 
 dispatcher.add_handler(LEAVE_HANDLER)
