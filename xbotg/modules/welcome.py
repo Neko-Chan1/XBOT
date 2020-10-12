@@ -150,7 +150,7 @@ def new_member(bot: Bot, update: Update, job_queue: JobQueue):
 
             # Welcome yourself
             elif new_mem.id == bot.id:
-                bot.send_message(
+                update.effective_message.reply_text(
                     "Hey 😍 {}, I'm {}! Thank you for adding me to your Group".format(
                         user.first_name, bot.first_name
                     ),                
