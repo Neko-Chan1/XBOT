@@ -16,6 +16,7 @@ from telegram.ext import MessageHandler, Filters, CommandHandler, run_async, Cal
 from telegram.utils.helpers import mention_markdown, mention_html, escape_markdown
 
 import xbotg.modules.sql.welcome_sql as sql
+from xbotg.modules.sql.global_bans_sql import is_user_gbanned
 from xbotg import dispatcher, OWNER_ID, DEV_USERS, SUDO_USERS, SUPPORT_USERS, SARDEGNA_USERS, WHITELIST_USERS, LOGGER, spam_watch, MESSAGE_DUMP
 from xbotg.modules.helper_funcs.chat_status import user_admin, is_user_ban_protected
 from xbotg.modules.helper_funcs.misc import build_keyboard, revert_buttons
@@ -333,10 +334,18 @@ def left_member(bot: Bot, update: Update):
     if should_goodbye:
         left_mem = update.effective_message.left_chat_member
         if left_mem:
-            if spam_watch is None:
+
+            # Ignore gbanned users
+            if is_user_gbanned(left_mem.id):
+                return
+
+            try:
                 sw_ban = spam_watch.get_ban(left_mem.id)
                 if sw_ban:
                     return
+            except BaseException:
+                pass
+
             # Ignore bot being kicked
             if left_mem.id == bot.id:
                 return
