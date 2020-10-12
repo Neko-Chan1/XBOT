@@ -23,8 +23,8 @@ tswift
 psutil
 telegraph
 fontTools
-aiohttp
-Pillow
+aiohttp>=2.2.5
+Pillow>=4.2.0
 CurrencyConverter
 googletrans
 jikanpy
@@ -41,7 +41,6 @@ psutil
 py-cpuinfo
 nekos.py
 spamwatch
-telethon
 covid
 alphabet_detector
 bleach
