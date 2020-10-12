@@ -152,7 +152,7 @@ def new_member(bot: Bot, update: Update, job_queue: JobQueue):
             elif new_mem.id == bot.id:
                 bot.send_message(
                     "Hey 😍 {}, I'm {}! Thank you for adding me to {}".format(
-                        first_name, bot.first_name, chatname
+                        user.first_name, bot.first_name, chatname
                     ),                
                 )
                 bot.send_message(
