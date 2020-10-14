@@ -66,7 +66,8 @@ WORKDIR /root/XBOT
 ENV PATH="/home/xbotg/bin:$PATH"
 
 # Install requirements
-RUN sudo pip3 install -U -r requirements.txt
+# RUN sudo pip3 install -U -r requirements.txt
 
 # Starting Worker
-CMD ["python3","-m","xbotg"]
+CMD ["bash", "start"]
+

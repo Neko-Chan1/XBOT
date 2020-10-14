@@ -169,7 +169,7 @@ telethn = TelegramClient("xbotg", API_ID, API_HASH)
 updater = tg.Updater(TOKEN, workers=WORKERS)
 dispatcher = updater.dispatcher
 
-kp = Client("XbotPyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
+kp = Client("XBOT", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 
 SUDO_USERS = list(SUDO_USERS) + list(DEV_USERS)
 DEV_USERS = list(DEV_USERS)
