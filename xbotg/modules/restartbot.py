@@ -16,6 +16,7 @@ from spamwatch import __version__ as __sw__
 from telegram import Bot, Update, TelegramError, ParseMode, __version__
 from telegram.error import BadRequest
 from telegram.ext import CommandHandler, Filters, run_async
+from telegram.utils.helpers import mention_html
 
 from xbotg import MESSAGE_DUMP, OWNER_ID, dispatcher
 from xbotg.modules.helper_funcs.alternate import typing_action
@@ -35,7 +36,7 @@ def restart(bot: Bot, update: Update):
         current_time = datetime.datetime.utcnow().strftime(datetime_fmt)
         message = (
             f"<b>Bot Restarted </b>"
-            f"<b>By :</b> <code>{html.escape(first_name)}</code>"
+            f"<b>Admin:</b> {mention_html(user.first_name)}"
             f"<b>\nDate Bot Restart : </b><code>{current_time}</code>"
         )
         bot.send_message(
