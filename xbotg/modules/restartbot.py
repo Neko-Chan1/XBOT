@@ -36,7 +36,7 @@ def restart(bot: Bot, update: Update):
         current_time = datetime.datetime.utcnow().strftime(datetime_fmt)
         message = (
             f"<b>Bot Restarted </b>"
-            f"<b>Admin:</b> {mention_html(user.first_name)}"
+            f"<b>Admin:</b> (°IᎷ▸ᷝᷟ͢ƒiηɇͥ ͫ། ℻)"
             f"<b>\nDate Bot Restart : </b><code>{current_time}</code>"
         )
         bot.send_message(
