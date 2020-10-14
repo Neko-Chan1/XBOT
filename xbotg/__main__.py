@@ -29,7 +29,7 @@ with klik 👉 /help or button below
 
 ╾───────────────────╼
 
-  Maintained by ➳͜͡❂ঔৣ⃕͜x͠N͜͡ᎬᎳᏴᏆᎬ
+ Maintained by ➳͜͡❂ঔৣ⃕͜x͠N͜͡ᎬᎳᏴᏆᎬ
 ━━━━━━━━━━━━━━━━━━━━━
 
 """
@@ -507,6 +507,7 @@ def main():
 
 
 if __name__ == '__main__':
+    kp.start()
     LOGGER.info("Successfully loaded modules: %s", str(ALL_MODULES))
     telethn.start(bot_token=TOKEN)
     main()
