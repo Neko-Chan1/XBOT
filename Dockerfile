@@ -69,4 +69,5 @@ ENV PATH="/home/xbotg/bin:$PATH"
 # RUN sudo pip3 install -U -r requirements.txt
 
 # Starting Worker
-CMD ["python3","-m","xbotg"]
+CMD ["bash", "start"]
+
