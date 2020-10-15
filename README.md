@@ -23,6 +23,7 @@ Thank you for contributing with me in this Project:
 + [TsunayoshiSawada](https://github.com/TsunayoshiSawada)
 + [Athphane](https://github.com/athphane)
 + [Dank-del](https://github.com/Dank-del)
++ [MoveAngel](https://github.com/MoveAngel)
 
 Any other authorship/credits can be seen through the commits.
 
