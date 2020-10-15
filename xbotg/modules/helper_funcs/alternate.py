@@ -83,7 +83,7 @@ def typing_action(func):
 
     @wraps(func)
     def command_func(update, *args, **kwargs):
-        message.reply_text(
+        update.reply_text(
             chat_id=update.effective_chat.id, action=ChatAction.TYPING
         )
         return func(update, *args, **kwargs)
@@ -97,7 +97,7 @@ def send_action(action):
     def decorator(func):
         @wraps(func)
         def command_func(update, *args, **kwargs):
-            update.message.reply_text(
+            update.reply_text(
                 chat_id=update.effective_chat.id, action=action
             )
             return func(update, *args, **kwargs)
