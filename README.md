@@ -15,7 +15,7 @@ The Support group can be reached out to at [Eagle Union](https://t.me/YorktownEa
 The bot is based of on the original work done by [PaulSonOfLars](https://github.com/PaulSonOfLars)
 This repo was just reamped to suit an Anime-centric community. All original credits go to Paul and his dedication, Without his efforts, this fork would not have been possible!
 
-Most modules including Blacklists, Lyrics and much more are taken from [TheRealPhoenixBot](https://t.me/TheRealPhoenixBot) & [UserIndoBot](https://t.me/userbotindobot)
+Most modules including Blacklists, Lyrics and much more are taken from [TheRealPhoenixBot](https://t.me/TheRealPhoenixBot) & [UserIndoBot](https://t.me/userbotindobot) & [Lynda](https://t.me/LyndaRobot)
 
 Thank you for contributing with me in this Project:
 + [TheRealPhoenix](https://github.com/rsktg)
@@ -24,6 +24,7 @@ Thank you for contributing with me in this Project:
 + [Athphane](https://github.com/athphane)
 + [Dank-del](https://github.com/Dank-del)
 + [MoveAngel](https://github.com/MoveAngel)
++ [pokurt](https://github.com/pokurt)
 
 Any other authorship/credits can be seen through the commits.
 
