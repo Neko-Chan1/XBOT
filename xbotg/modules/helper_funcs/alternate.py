@@ -19,7 +19,7 @@ import traceback
 
 from functools import wraps
 from typing import Optional
-from telegram import error, ChatAction
+from telegram import error, ChatAction, Bot, Update
 
 DUMP_CHAT = -1001188814263
 
