@@ -31,8 +31,7 @@ DEVICES_DATA = "https://raw.githubusercontent.com/androidtrackers/certified-andr
 
 
 @run_async
-@typing_action
-def magisk(_bot: Bot, update: Update, args):
+def magisk(_bot: Bot, update: Update):
     url = "https://raw.githubusercontent.com/topjohnwu/magisk_files/"
     releases = ""
     for type, branch in {
