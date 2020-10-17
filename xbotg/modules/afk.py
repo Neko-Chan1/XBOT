@@ -25,7 +25,7 @@ def afk(bot: Bot, update: Update):
 
     sql.set_afk(update.effective_user.id, reason)
     update.effective_message.reply_text(
-        "{} is away from keyboard !".format(update.effective_user.first_name)
+        "{} Sekarang OFFLINE!".format(update.effective_user.first_name)
     )
 
 
@@ -39,14 +39,7 @@ def no_longer_afk(bot: Bot, update: Update):
     res = sql.rm_afk(user.id)
     if res:
         options = [
-            "{} is here!",
-            "{} is back!",
-            "{} is now in the chat!",
-            "{} is awake!",
-            "{} is back online!",
-            "{} is finally here!",
-            "Welcome back!, {}",
-            "Where is {}?\nIn the chat!",
+            "{}\nTelah Kembali dari AFK!!",
         ]
         chosen_option = random.choice(options)
         update.effective_message.reply_text(
@@ -83,9 +76,9 @@ def reply_afk(bot: Bot, update: Update):
                 valid, reason = sql.check_afk_status(user_id)
                 if valid:
                     if not reason:
-                        res = "{} is AFK!".format(fst_name)
+                        res = "{} \nSedang OFFLINE!".format(fst_name)
                     else:
-                        res = "{} is AFK!\nReason:\n{}".format(fst_name, reason)
+                        res = "{} \nSedang OFFLINE!\nReason:\n{}".format(fst_name, reason)
                     message.reply_text(res)
 
 
