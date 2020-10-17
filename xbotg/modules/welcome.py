@@ -862,7 +862,7 @@ dispatcher.add_handler(WELCOMEMUTE_HANDLER)
 dispatcher.add_handler(BUTTON_VERIFY_HANDLER)
 dispatcher.add_handler(WELCOME_MUTE_HELP)
 
-__mod_name__ = "Welcomes/Goodbyes"
+__mod_name__ = "Welcomes"
 __command_list__ = [
     "welcome",
     "goodbye",
