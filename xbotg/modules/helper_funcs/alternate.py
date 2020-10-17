@@ -19,7 +19,7 @@ import traceback
 
 from functools import wraps
 from typing import Optional
-from telegram import error, ChatAction
+from telegram import error, ChatAction, Bot, Update
 
 DUMP_CHAT = -1001188814263
 
@@ -82,11 +82,11 @@ def typing_action(func):
     """Sends typing action while processing func command."""
 
     @wraps(func)
-    def command_func(update, context, *args, **kwargs):
-        context.bot.send_chat_action(
+    def command_func(update, *args, **kwargs):
+        dispatcher.bot.send_chat_action(
             chat_id=update.effective_chat.id, action=ChatAction.TYPING
         )
-        return func(update, context, *args, **kwargs)
+        return func(update, *args, **kwargs)
 
     return command_func
 
@@ -96,11 +96,11 @@ def send_action(action):
 
     def decorator(func):
         @wraps(func)
-        def command_func(update, context, *args, **kwargs):
-            context.bot.send_chat_action(
+        def command_func(update, *args, **kwargs):
+            dispatcher.bot.send_chat_action(
                 chat_id=update.effective_chat.id, action=action
             )
-            return func(update, context, *args, **kwargs)
+            return func(update, *args, **kwargs)
 
         return command_func
 
