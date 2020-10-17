@@ -18,7 +18,7 @@ from xbotg.modules.connection import connect_button
 from xbotg.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
-━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━
 
 Hello {}
 my name is {}
@@ -27,10 +27,9 @@ with a lot of Special Features.
 You can find the list of available commands
 with klik 👉 /help or button below
 
-╾───────────────────╼
-
- Maintained by ➳͜͡❂ঔৣ⃕͜x͠N͜͡ᎬᎳᏴᏆᎬ
-━━━━━━━━━━━━━━━━━━━━━
+╾─────────────────────╼
+ Maintained by [➳͜͡❂ঔৣ⃕͜x͠N͜͡ᎬᎳᏴᏆᎬ࿐](t.me/X_Newbie)
+━━━━━━━━━━━━━━━━━━━━━━━
 
 """
 
@@ -146,9 +145,9 @@ def start(bot: Bot, update: Update, args: List[str]):
         else:
             first_name = update.effective_user.first_name
             buttons = InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="🤖 Add XBOT to your group", url="https://t.me/XBOTGBOT?startgroup=new")],
-                 [InlineKeyboardButton(text="❓ Help", url="https://t.me/XBOTGBOT?start=help"), InlineKeyboardButton(text="⚙️ Connections", url="https://t.me/XBOTGBOT?connect=connect")],
-                 [InlineKeyboardButton(text="🚫 Global Logs", url="https://t.me/XBOT_SUPPORT"), InlineKeyboardButton(text="🔔 Update Channel", url="https://t.me/XBOT_SUPPORT")]])
+                [[InlineKeyboardButton(text="🤖 Add XBOT To Your Group 🤖", url="https://t.me/XBOTGBOT?startgroup=new")],
+                 [InlineKeyboardButton(text="⚙️ Help", url="https://t.me/XBOTGBOT?start=help"), InlineKeyboardButton(text="🔥 Connections", url="https://t.me/XBOTGBOT?connect=connect")],
+                 [InlineKeyboardButton(text="🚫 Gban Logs", url="https://t.me/XBOTGBAN"), InlineKeyboardButton(text="🔔 Update Channel", url="https://t.me/XBOT_SUPPORT")]])
             message.reply_photo(
                 LYNDA_IMG,
                 PM_START_TEXT.format(
@@ -419,7 +418,7 @@ def donate(bot: Bot, update: Update):
     chat = update.effective_chat  # type: Optional[Chat]
 
     if chat.type == "private":
-        message.effective_message.reply_text(
+        update.effective_message.reply_text(
             DONATE_STRING,
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True)
