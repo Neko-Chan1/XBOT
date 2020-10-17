@@ -14,7 +14,9 @@ from xbotg import (
     dispatcher,
     OWNER_ID,
     SUDO_USERS,
+    DEV_USERS,
     SUPPORT_USERS,
+    SARDEGNA_USERS,
     WHITELIST_USERS,
     STRICT_GBAN,
     GBAN_LOGS,
@@ -73,7 +75,13 @@ def gban(bot: Bot, update: Update, args: List[str]):
     if not user_id:
         message.reply_text("You don't seem to be referring to a user.")
         return
-   
+
+    if int(user_id) in DEV_USERS:
+        message.reply_text(
+            "That user is part of the Union\nI can't act against our own."
+        )
+        return
+
     if int(user_id) in SUDO_USERS:
         message.reply_text(
             "I spy, with my little eye... a Nation! Why are you guys turning on each other?"
@@ -86,7 +94,10 @@ def gban(bot: Bot, update: Update, args: List[str]):
         )
         return
 
-    
+    if int(user_id) in SARDEGNA_USERS:
+        message.reply_text("That's a Sardegna! They cannot be banned!")
+        return
+
     if int(user_id) in WHITELIST_USERS:
         message.reply_text("That's a Neptunia! They cannot be banned!")
         return
