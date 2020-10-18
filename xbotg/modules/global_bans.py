@@ -20,8 +20,8 @@ from xbotg import (
     WHITELIST_USERS,
     STRICT_GBAN,
     GBAN_LOGS,
+    sw,
 )
-from xbotg import SW_API as sw
 from xbotg.modules.helper_funcs.chat_status import (
     user_admin,
     is_user_admin,
@@ -395,6 +395,18 @@ def gbanlist(bot: Bot, update: Update):
             caption="Here is the list of currently gbanned users.",
         )
 
+def check_cas(user_id):
+    cas_url = "https://api.cas.chat/check?user_id={}".format(user_id)
+    try:
+        r = get(cas_url, timeout=3)
+        data = r.json()
+    except BaseException:
+        LOGGER.info(f"CAS check failed for {user_id}")
+        return False
+    if data and data["ok"]:
+        return "https://cas.chat/query?u={}".format(user_id)
+    else:
+        return False
 
 def check_and_ban(update, user_id, should_message=True):
 
