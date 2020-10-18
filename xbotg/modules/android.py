@@ -37,9 +37,22 @@ def magisk(_bot: Bot, update: Update):
     for type, branch in {
         "Stable": ["master/stable", "master"],
         "Beta": ["master/beta", "master"],
-        "Canary (debug)": ["canary/debug", "canary"],
+        "Canary": ["canary/canary", "canary"],
     }.items():
         data = get(url + branch[0] + ".json").json()
+        if str(type) == "Canary":
+        data["magisk"]["link"] = (
+                "https://github.com/topjohnwu/magisk_files/raw/canary/"
+                + data["magisk"]["link"]
+            )
+            data["app"]["link"] = (
+                "https://github.com/topjohnwu/magisk_files/raw/canary/"
+                + data["app"]["link"]
+            )
+            data["uninstaller"]["link"] = (
+                "https://github.com/topjohnwu/magisk_files/raw/canary/"
+                + data["uninstaller"]["link"]
+            )
         releases += (
             f"*{type}*: \n"
             f"• [Changelog](https://github.com/topjohnwu/magisk_files/blob/{branch[1]}/notes.md)\n"
@@ -47,7 +60,7 @@ def magisk(_bot: Bot, update: Update):
             f'• App - [{data["app"]["version"]}-{data["app"]["versionCode"]}]({data["app"]["link"]}) \n'
             f'• Uninstaller - [{data["magisk"]["version"]}-{data["magisk"]["versionCode"]}]({data["uninstaller"]["link"]})\n\n'
         )
-
+        
     del_msg = update.message.reply_text(
         "*Latest Magisk Releases:*\n{}".format(releases),
         parse_mode=ParseMode.MARKDOWN,
@@ -183,6 +196,56 @@ def twrp(_bot: Bot, update: Update, args):
         )
 
 
+@run_async
+def los(_bot: Bot, update: Update, args) -> str:
+    message = update.effective_message
+    update.effective_chat
+    try:
+        device = args[0]
+    except Exception:
+        device = ""
+
+    if device == "":
+        reply_text = f"*Please Type Your Device Codename*\nExample : `/los lavender`"
+        message.reply_text(
+            reply_text, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True
+        )
+        return
+
+    fetch = get(f"https://download.lineageos.org/api/v1/{device}/nightly/*")
+    if fetch.status_code == 200 and len(fetch.json()["response"]) != 0:
+        usr = fetch.json()
+        data = len(usr["response"]) - 1  # the latest rom are below
+        response = usr["response"][data]
+        filename = response["filename"]
+        url = response["url"]
+        buildsize_a = response["size"]
+        buildsize_b = sizee(int(buildsize_a))
+        version = response["version"]
+
+        reply_text = f"*Download :* [{filename}]({url})\n"
+        reply_text += f"*Build Size :* `{buildsize_b}`\n"
+        reply_text += f"*Version :* `{version}`\n"
+
+        keyboard = [
+            [InlineKeyboardButton(text="Click Here To Downloads", url=f"{url}")]
+        ]
+        message.reply_text(
+            reply_text,
+            reply_markup=InlineKeyboardMarkup(keyboard),
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+        )
+        return
+
+    else:
+        message.reply_text(
+            "`Couldn't find any results matching your query.`",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+        )
+        
+        
 __help__ = """
 Get Latest magisk relese, Twrp for your device or info about some device using its codename, Directly from Bot!
 
@@ -198,7 +261,9 @@ __mod_name__ = "Android"
 MAGISK_HANDLER = DisableAbleCommandHandler("magisk", magisk)
 DEVICE_HANDLER = DisableAbleCommandHandler("device", device, pass_args=True)
 TWRP_HANDLER = DisableAbleCommandHandler("twrp", twrp, pass_args=True)
+LOS_HANDLER = DisableAbleCommandHandler("los", los, pass_args=True)
 
 dispatcher.add_handler(MAGISK_HANDLER)
 dispatcher.add_handler(DEVICE_HANDLER)
 dispatcher.add_handler(TWRP_HANDLER)
+dispatcher.add_handler(LOS_HANDLER)
