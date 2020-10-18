@@ -45,11 +45,11 @@ def magisk(_bot: Bot, update: Update):
                 "https://github.com/topjohnwu/magisk_files/raw/canary/"
                 + data["magisk"]["link"]
             )
-            data["app"]["link"] = (
+        data["app"]["link"] = (
                 "https://github.com/topjohnwu/magisk_files/raw/canary/"
                 + data["app"]["link"]
             )
-            data["uninstaller"]["link"] = (
+        data["uninstaller"]["link"] = (
                 "https://github.com/topjohnwu/magisk_files/raw/canary/"
                 + data["uninstaller"]["link"]
             )
