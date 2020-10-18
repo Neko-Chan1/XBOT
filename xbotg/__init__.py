@@ -157,13 +157,13 @@ DEV_USERS.add(OWNER_ID)
 
 # SpamWatch
 if SW_API == "None":
-    spam_watch = None
+    sw = None
     LOGGER.warning("SpamWatch API key is missing! Check your config var")
 else:
     try:
-        spam_watch = spamwatch.Client(SW_API)
+        sw = spamwatch.Client(SW_API)
     except Exception:
-        spam_watch = None
+        sw = None
 
 telethn = TelegramClient("xbotg", API_ID, API_HASH)
 updater = tg.Updater(TOKEN, workers=WORKERS)
