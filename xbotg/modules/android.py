@@ -211,7 +211,7 @@ def los(_bot: Bot, update: Update, args) -> str:
         filename = response["filename"]
         url = response["url"]
         buildsize_a = response["size"]
-        buildsize_b = sizee(int(buildsize_a))
+        buildsize_b = xsize(int(buildsize_a))
         version = response["version"]
 
         reply_text = f"*Download :* [{filename}]({url})\n"
