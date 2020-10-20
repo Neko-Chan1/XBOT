@@ -9,7 +9,7 @@ RUN mkdir /root/xbotg/bin/
 WORKDIR /root/xbotg/
 
 # Try Upgrade some requirements
-# RUN pip3 install -r requirements.txt --upgrade
+RUN pip3 install -r requirements.txt --upgrade
 
 # Starting Worker
 CMD ["bash", "start"]
