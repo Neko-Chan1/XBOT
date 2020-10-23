@@ -15,7 +15,7 @@ from xbotg.modules.disable import DisableAbleCommandHandler
 
 
 @run_async
-def wiki(bot: Bot, update: Update):
+def wiki(bot: Bot, update: Update, args):
     msg = update.effective_message.reply_to_message if update.effective_message.reply_to_message else update.effective_message
     res = ""
     if msg == update.effective_message:
