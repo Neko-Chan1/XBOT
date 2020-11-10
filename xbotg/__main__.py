@@ -28,7 +28,7 @@ You can find the list of available commands
 with klik 👉 /help or button below
 
 ╾─────────────────────╼
- Maintained by [➳͜͡❂ঔৣ⃕͜x͠N͜͡ᎬᎳᏴᏆᎬ࿐](t.me/X_Newbie)
+ Maintained by [°IᎷ▸ᷝᷟ͢ƒiηɇͥ ͫ། ツ࿐](t.me/X_ImFine)
 ━━━━━━━━━━━━━━━━━━━━━━━
 
 """
