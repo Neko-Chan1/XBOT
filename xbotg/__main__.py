@@ -38,7 +38,7 @@ Hey there! My name is *{}*.
 I'm a part of Eagle Union.
 Have a look at the following for an idea of some of \
 the things I can help you with.
-I'm managed by [➳͜͡❂ঔৣ⃕͜x͠N͜͡ᎬᎳᏴᏆᎬ࿐](https://t.me/X_Newbie)
+I'm managed by [°IᎷ▸ᷝᷟ͢ƒiηɇͥ ͫ། ツ](https://t.me/X_ImFine)
 *Main* commands available:
  - /start: start the bot
  - /help: PM's you this message.
@@ -147,7 +147,7 @@ def start(bot: Bot, update: Update, args: List[str]):
             buttons = InlineKeyboardMarkup(
                 [[InlineKeyboardButton(text="🤖 Add XBOT To Your Group 🤖", url="https://t.me/XBOTGBOT?startgroup=new")],
                  [InlineKeyboardButton(text="⚙️ Help", url="https://t.me/XBOTGBOT?start=help"), InlineKeyboardButton(text="🔥 Connections", url="https://t.me/XBOTGBOT?connect=connect")],
-                 [InlineKeyboardButton(text="🚫 Gban Logs", url="https://t.me/XBOTGBAN"), InlineKeyboardButton(text="🔔 Update Channel", url="https://t.me/XBOT_SUPPORT")]])
+                 [InlineKeyboardButton(text="🚫 Gban Logs", url="https://t.me/xgbanlogs"), InlineKeyboardButton(text="🔔 Update Channel", url="https://t.me/X_Newbie")]])
             message.reply_photo(
                 LYNDA_IMG,
                 PM_START_TEXT.format(
