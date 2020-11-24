@@ -7,7 +7,7 @@ A modular telegram Python bot running on python3 with an sqlalchemy database.
 
 Originally a [Kigyō](https://t.me/kigyorobot) fork - XBOT has evolved further and was built to be more useful for Chats. 
 
-Can be found on telegram as [XBOT OFFICIAL](https://t.me/XBOTGBOT).
+Can be found on telegram as [XBOT OFFICIAL](https://t.me/xbotgroup_bot).
 
 The Support group can be reached out to at [Eagle Union](https://t.me/YorktownEagleUnion), where you can ask for help setting up your bot, discover/request new features, report bugs, and stay in the loop whenever a new update is available. 
 
