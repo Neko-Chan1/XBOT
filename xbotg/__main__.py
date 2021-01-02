@@ -28,7 +28,7 @@ You can find the list of available commands
 with klik 👉 /help or button below
 
 ╾─────────────────────╼
- Maintained by [°IᎷ▸ᷝᷟ͢ƒiηɇͥ ͫ། ツ࿐](t.me/X_ImFine)
+ Maintained by [°IᎷ▸ᷝᷟ͢ƒiηɇͥ ͫ། ツ](t.me/X_ImFine)
 ━━━━━━━━━━━━━━━━━━━━━━━
 
 """
@@ -52,7 +52,7 @@ I'm managed by [°IᎷ▸ᷝᷟ͢ƒiηɇͥ ͫ། ツ](https://t.me/X_ImFine)
 And the following:
 """.format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n")
 
-LYNDA_IMG = "https://telegra.ph/file/709562f80d798cb379acb.jpg"
+LYNDA_IMG = "https://telegra.ph/file/fc355619f29749a412695.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
 XBOT is hosted on one of Digital Ocean Servers. \
@@ -145,8 +145,8 @@ def start(bot: Bot, update: Update, args: List[str]):
         else:
             first_name = update.effective_user.first_name
             buttons = InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="🤖 Add XBOT To Your Group 🤖", url="https://t.me/xbotgroup_bot?startgroup=new")],
-                 [InlineKeyboardButton(text="⚙️ Help", url="https://t.me/xbotgroup_bot?start=help"), InlineKeyboardButton(text="🔥 Connections", url="https://t.me/xbotgroup_bot?connect=connect")],
+                [[InlineKeyboardButton(text="🤖 ADD DEVIL TO YOUR GROUP 🤖", url="https://t.me/Devil_Xbot?startgroup=new")],
+                 [InlineKeyboardButton(text="⚙️ Help", url="https://t.me/Devil_Xbot?start=help"), InlineKeyboardButton(text="🔥 Connections", url="https://t.me/xbotgroup_bot?connect=connect")],
                  [InlineKeyboardButton(text="🚫 Gban Logs", url="https://t.me/xgbanlogs"), InlineKeyboardButton(text="🔔 Update Channel", url="https://t.me/X_Newbie")]])
             message.reply_photo(
                 LYNDA_IMG,
