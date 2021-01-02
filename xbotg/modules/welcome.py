@@ -158,7 +158,7 @@ def new_member(bot: Bot, update: Update, job_queue: JobQueue):
                 )
                 bot.send_message(
                     MESSAGE_DUMP,
-                    "XBOT have been added to <pre>{}</pre> with ID: \n<pre>{}</pre>".format(
+                    "Devil have been added to <pre>{}</pre> with ID: \n<pre>{}</pre>".format(
                         chat.title, chat.id
                     ),
                     parse_mode=ParseMode.HTML,
