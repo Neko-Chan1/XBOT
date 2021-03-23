@@ -1,5 +1,5 @@
 # We're using prebuilt docker images
-FROM python:3.9
+FROM ximfine/marsha:buster
 
 #
 # Clone repo and prepare working directory
