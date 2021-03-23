@@ -154,7 +154,7 @@ def start(bot: Bot, update: Update, args: List[str]):
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=buttons)
     else:
-        message.reply_text("Halo Nakano Miku di Sini 🤖!!!")
+        message.reply_text("Halo Nakano Miku di Sini!!")
 
 
 # for test purposes
