@@ -1,5 +1,5 @@
 # We're using prebuilt docker images
-FROM userindobot/docker:ubotindo
+FROM python:3.9
 
 #
 # Clone repo and prepare working directory
