@@ -99,11 +99,10 @@ NO_AFK_HANDLER = DisableAbleMessageHandler(
 )
 AFK_REPLY_HANDLER = DisableAbleMessageHandler(
     (Filters.entity(MessageEntity.MENTION) | Filters.entity(MessageEntity.TEXT_MENTION))
-    & Filters.group & ~Filters.update.edited_message,
+    & Filters.group,
     reply_afk,
     friendly="afk",
 )
-
 dispatcher.add_handler(AFK_HANDLER, AFK_GROUP)
 dispatcher.add_handler(AFK_REGEX_HANDLER, AFK_GROUP)
 dispatcher.add_handler(NO_AFK_HANDLER, AFK_GROUP)
