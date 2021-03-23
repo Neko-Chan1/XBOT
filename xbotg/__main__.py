@@ -145,9 +145,9 @@ def start(bot: Bot, update: Update, args: List[str]):
         else:
             first_name = update.effective_user.first_name
             buttons = InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="🤖 Add XBOT To Your Group 🤖", url="https://t.me/NakanoMiku_Xbot?startgroup=new")],
-                 [InlineKeyboardButton(text="⚙️ Help", url="https://t.me/xbotgroup_bot?start=help")],
-                 [InlineKeyboardButton(text="🚫 Gban Logs", url="https://t.me/gbanlogsmiku")], 
+                [InlineKeyboardButton(text="🤖 Add Nakano Miku To Your Group 🤖", url="https://t.me/NakanoMiku_Xbot?startgroup=new")],
+                 [InlineKeyboardButton(text="⚙️ Help", url="https://t.me/NakanoMiku_Xbot?start=help"), InlineKeyboardButton(text="🔥 Connections", url="https://t.me/xbotgroup_bot?connect=connect")],
+                 [InlineKeyboardButton(text="🚫 Gban Logs", url="https://t.me/gbanlogsmiku"), InlineKeyboardButton(text="🔔 Update Channel", url="https://t.me/X_Newbie")]])
             message.reply_photo(
                 LYNDA_IMG,
                 PM_START_TEXT.format(
