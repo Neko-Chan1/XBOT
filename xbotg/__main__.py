@@ -28,7 +28,7 @@ You can find the list of available commands
 with klik 👉 /help or button below
 
 ╾─────────────────────╼
- Maintained by [°IᎷ▸ᷝᷟ͢ƒiηɇͥ ͫ། ツ࿐](t.me/X_ImFine)
+ Maintained by [°IᎷ▸ᷝᷟ͢ƒiηɇͥ ͫ། ツ࿐](t.me/Si_Akmal)
 ━━━━━━━━━━━━━━━━━━━━━━━
 
 """
@@ -38,7 +38,7 @@ Hey there! My name is *{}*.
 I'm a part of Eagle Union.
 Have a look at the following for an idea of some of \
 the things I can help you with.
-I'm managed by [°IᎷ▸ᷝᷟ͢ƒiηɇͥ ͫ། ツ](https://t.me/X_ImFine)
+I'm managed by [°IᎷ▸ᷝᷟ͢ƒiηɇͥ ͫ། ツ](https://t.me/Si_Akmal)
 *Main* commands available:
  - /start: start the bot
  - /help: PM's you this message.
@@ -52,7 +52,7 @@ I'm managed by [°IᎷ▸ᷝᷟ͢ƒiηɇͥ ͫ། ツ](https://t.me/X_ImFine)
 And the following:
 """.format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n")
 
-LYNDA_IMG = "https://telegra.ph/file/709562f80d798cb379acb.jpg"
+LYNDA_IMG = "https://telegra.ph/file/a168ef2add4217c705378.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
 XBOT is hosted on one of Digital Ocean Servers. \
@@ -145,20 +145,20 @@ def start(bot: Bot, update: Update, args: List[str]):
         else:
             first_name = update.effective_user.first_name
             buttons = InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="🤖 Add XBOT To Your Group 🤖", url="https://t.me/xbotgroup_bot?startgroup=new")],
-                 [InlineKeyboardButton(text="⚙️ Help", url="https://t.me/xbotgroup_bot?start=help"), InlineKeyboardButton(text="🔥 Connections", url="https://t.me/xbotgroup_bot?connect=connect")],
-                 [InlineKeyboardButton(text="🚫 Gban Logs", url="https://t.me/xgbanlogs"), InlineKeyboardButton(text="🔔 Update Channel", url="https://t.me/X_Newbie")]])
+                [[InlineKeyboardButton(text="🤖 Add XBOT To Your Group 🤖", url="https://t.me/NakanoMiku_Xbot?startgroup=new")],
+                 [InlineKeyboardButton(text="⚙️ Help", url="https://t.me/xbotgroup_bot?start=help")],
+                 [InlineKeyboardButton(text="🚫 Gban Logs", url="https://t.me/gbanlogsmiku")], 
             message.reply_photo(
                 LYNDA_IMG,
                 PM_START_TEXT.format(
                     escape_markdown(first_name),
                     escape_markdown(
                         bot.first_name),
-                    OWNER_ID),
+                    OWNER_ID), 
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=buttons)
     else:
-        message.reply_text("Halo XBOT di Sini 🤖!!!")
+        message.reply_text("Halo Nakano Miku di sini!!!")
 
 
 # for test purposes
