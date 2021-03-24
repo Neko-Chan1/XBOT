@@ -143,7 +143,7 @@ def start(bot: Bot, update: Update, args: List[str]):
             buttons = InlineKeyboardMarkup(
                 [[InlineKeyboardButton(text="✨ Add Me To Your Group ✨", url="https://t.me/NakanoMiku_Xbot?startgroup=new")],
                  [InlineKeyboardButton(text="⚙️ Help", url="https://t.me/NakanoMiku_xbot?start=help"), InlineKeyboardButton(text="join Animlover group", url="https://t.me/Animeeindonesia?connect=connect")],
-                 [InlineKeyboardButton(text="🚫 Gban Logs", url="https://t.me/gbanlogsmiku"), InlineKeyboardButton(text="🔔 Update Channel", url="https://t.me/X_Newbie")]])
+                 [InlineKeyboardButton(text="🚫 Gban Logs", url="https://t.me/gbanlogsmiku"), InlineKeyboardButton(text="🔔 Update Channel", url="https://t.me/X_Projectss")]])
             message.reply_photo(
                 LYNDA_IMG,
                 PM_START_TEXT.format(
